@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parmgly</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        /* General */
+        body{
+            height: 100vh;
+        }
+        .bg-black{
+            background-color: #222;
+        }
+
+        .bg-none{
+            background-color: rgba(0,0,0,0);
+        }
+
+        /* settings box */
+        .settings-box{
+            position: fixed;
+            left:-200px;
+            top:0;
+            width:200px;
+            z-index: 10000;
+            min-height: 100vh;
+            transition: 0.3s;
+            margin: 0;
+            border: 2px solid #333;
+        }
+
+        .settings-box .icon-container{
+            position: absolute;
+            right: -30px;
+            top: 100px;
+            text-align: center;
+            cursor: pointer;
+            margin: 0;
+            border-right:2px solid #333;
+            border-top:2px solid #333;
+            border-bottom:2px solid #333;
+        }
+        .settings-box .icon-container .fa-cog{
+            width: 30px;
+            padding: 8px 0;
+        }
+        .settings-box.open{
+            left: 0;
+        }
+
+        @media(max-width: 720px){
+            .myIcon{
+                display: none;
+            }
+        }
+
+        .nav-link.active{
+            font-weight: bold;
+        }
+
+        /* header */
+        .contain{
+            position: relative;
+        }
+
+        .images{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay{
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-image: radial-gradient(circle farthest-side at bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.8) 95%);
+            color:white;
+            transition: 0.5s ease;
+        }
+
+        .overlay .btn:active{            
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .overlay .btn{
+            border: none;
+            box-shadow: none;
+        }
+
+        .link a.active{
+            color: white;
+            font-weight: bold;
+        }
+
+        .images .img-fluid{
+            height: 100vh;
+        }
+
+        .card {
+            height: 400px;
+            transition: 0.5s ease;
+            opacity: 0.85;
+            cursor: pointer;
+        }
+
+        .card p {
+            text-indent: 50px;
+        }
+
+        .card:hover{
+            transform: scale(1.07);
+            opacity: 1;
+        }
+
+        .lead{
+            letter-spacing: 1.3px;
+            text-indent: 20px;
+        }
+
+        .offer-title{            
+            text-shadow: 3px 3px 5px #555;
+        }
+
+        .offer::before{
+            content: "";
+            width:0;
+            height: 0;
+            border-radius: 5px;
+            border-left: 25px solid transparent;
+            border-top: 25px solid transparent;
+            border-right: 25px solid #F00;
+            border-bottom: 25px solid #F00;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Footer */
+        footer .follow{
+            margin-left: 20px;
+        }
+        footer i{
+            font-size: 35px;
+            margin-right: 20px;
+        }
+    </style>    
+</head>
+<body class="bg-black" data-spy="scroll" data-target=".navbar" data-offset="50">
+    
+    <nav class="navbar navbar-expand-md bg-none navbar-dark fixed-top p-0">
+        <a class="navbar-brand p-3"><h2 class="d-inline-block"><i class="fas fa-code"></i> Parmgly</h2></a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav nav mr-auto w-100 d-flex flex-row justify-content-around">
+                <li class="nav-item">
+                    <a class="nav-link p-3 active" href="index.html#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="index.html#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="index.html#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-3" href="index.html#offers">Offers<sup class="badge badge-success rounded-circle pr-2 pl-2">3</sup></a>
+                </li>
+            </ul>
+            <a class="float-right myIcon mr-2" href="#"><img class="rounded-circle" src="imgs/person-icon.png" width="35px" height="35px"></a>
+        </div> 
+    </nav>
+
+    <div class="row h-100 m-0">
+        <div class="w-50 mx-auto align-self-center">
+            <form action="index.html" class="text-center">
+                <div class="form-group">
+                    <label class="text-white float-left ml-2" for="name">Your name :</label>
+                    <input type="text" class="form-control" placeholder="Enter your name" id="name">
+                </div>
+                <div class="form-group">
+                  <label class="text-white float-left ml-2" for="email">Email address:</label>
+                  <input type="email" class="form-control" placeholder="Enter email" id="email">
+                </div>
+                <div class="form-group">
+                  <label class="text-white float-left ml-2" for="pwd">Password:</label>
+                  <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                </div>
+                <div class="form-group">
+                    <label class="text-white float-left ml-2" for="bod">Your birth of date :</label>
+                    <input type="date" class="form-control" id="bod">
+                </div>
+                <button type="submit" class="btn btn-success form-control mt-4">Login</button>
+              </form>
+        </div>        
+    </div>
+</body>
+</html>

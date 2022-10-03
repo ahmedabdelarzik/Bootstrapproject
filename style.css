@@ -1,0 +1,139 @@
+/* General */
+.bg-black{
+    background-color: #222;
+}
+
+.bg-none{
+    background-color: rgba(0,0,0,0);
+}
+
+/* settings box */
+.settings-box{
+    position: fixed;
+    left:-200px;
+    top:0;
+    width:200px;
+    z-index: 10000;
+    min-height: 100vh;
+    transition: 0.3s;
+    margin: 0;
+    border: 2px solid #333;
+}
+
+.settings-box .icon-container{
+    position: absolute;
+    right: -30px;
+    top: 100px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+    border-right:2px solid #333;
+    border-top:2px solid #333;
+    border-bottom:2px solid #333;
+    
+}
+.settings-box .icon-container .fa-cog{
+    width: 30px;
+    padding: 8px 0;
+}
+.settings-box.open{
+    left: 0;
+}
+
+@media(max-width: 720px){
+    .myIcon{
+        display: none;
+    }
+}
+
+.nav-link.active{
+    font-weight: bold;
+}
+
+/* header */
+.contain{
+    position: relative;
+}
+
+.images{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: radial-gradient(circle farthest-side at bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.8) 95%);
+    color:white;
+    transition: 0.5s ease;
+}
+
+.overlay .btn:active{            
+    border: none !important;
+    box-shadow: none !important;
+}
+.overlay .btn{
+    border: none;
+    box-shadow: none;
+}
+
+.link a.active{
+    color: white;
+    font-weight: bold;
+}
+
+.images .img-fluid{
+    height: 100vh;
+}
+
+.card {
+    height: 400px;
+    transition: 0.5s ease;
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.card p {
+    text-indent: 50px;
+}
+
+.card:hover{
+    transform: scale(1.07);
+    opacity: 1;
+}
+
+.lead{
+    letter-spacing: 1.3px;
+    text-indent: 20px;
+}
+
+.offer-title{            
+    text-shadow: 3px 3px 5px #555;
+}
+
+.offer::before{
+    content: "";
+    width:0;
+    height: 0;
+    border-radius: 5px;
+    border-left: 25px solid transparent;
+    border-top: 25px solid transparent;
+    border-right: 25px solid #F00;
+    border-bottom: 25px solid #F00;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Footer */
+footer .follow{
+    margin-left: 20px;
+}
+footer i{
+    font-size: 35px;
+    margin-right: 20px;
+}
